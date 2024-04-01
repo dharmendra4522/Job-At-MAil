@@ -1,4 +1,4 @@
 # student-management
 This is my first Repository
 <br>
-Author- Dharmendra Vishvkarma
+Author- Dharmendra Vishvkarma(student)
