@@ -11,8 +11,10 @@ Use Technology
 Run this project
 1. Open This project in any editor
 2. Open Terminal
-3. Write this command on ternimal -
-   python manage.py runserver
+3. Write this command on ternimal ---
+
+
+          python manage.py runserver
 
 
    
