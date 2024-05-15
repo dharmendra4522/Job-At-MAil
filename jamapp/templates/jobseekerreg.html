@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+{% block body %}
+<style>
+  .title-word {
+  animation: color-animation 2s linear infinite;
+}
+
+.title-word-1 {
+  --color-1: #DF8453;
+  --color-2: #3D8DAE;
+  --color-3: #E4A9A8;
+}
+
+.title-word-2 {
+  --color-1: #DBAD4A;
+  --color-2: #ACCFCB;
+  --color-3: #17494D;
+}
+
+.title-word-3 {
+  --color-1: #ACCFCB;
+  --color-2: #E4A9A8;
+  --color-3: #ACCFCB;
+}
+
+.title-word-4 {
+  --color-1: #3D8DAE;
+  --color-2: #DF8453;
+  --color-3: #E4A9A8;
+}
+@keyframes color-animation {
+  0%    {color: var(--color-1)}
+  32%   {color: var(--color-1)}
+  33%   {color: var(--color-2)}
+  65%   {color: var(--color-2)}
+  66%   {color: var(--color-3)}
+  99%   {color: var(--color-3)}
+  100%  {color: var(--color-1)}
+}
+
+/* Here are just some visual styles. 🖌 */
+
+.container {
+  display: grid;
+}
+
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 3vw;
+  text-transform: uppercase;
+}
+.button{
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #00000;
+            outline: 4px solid #800000;
+            padding: 10px 35px;
+            position: relative;
+            overflow: hidden;
+            transition: color 1s;
+            background-color: #4CAF50;
+            font-size: 20px;
+        }
+        .button:hover{
+            color: #fff;
+        }
+        .button::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50px;
+            width: 0;
+            height: 100%;
+            background-color: #008000;
+            transform: skewX(35deg);
+            z-index: -1;
+            transition: width 1s;
+        }
+        .button:hover::backdrop{
+            width: 150%;
+        }
+        *{
+    margin: 0;
+    padding: 0;
+}
+div.main{
+    width: 900px;
+	height: 100%;
+   margin-top: 50px;
+   margin-left: 90px;
+   margin-bottom: 30px;
+}
+h2{
+    text-align: center;
+    padding: 10px;
+    font-family: sans-serif;
+}
+div.register{
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    font-size: 20px;
+    border-radius:30px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+    color: #fff;
+}
+label{
+    font-family: sans-serif;
+    font-size: 20px;
+
+}
+input#name{
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline:0;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0, 0, 0,0.3) ;
+}
+input#submit{
+    width: 200px;
+    padding: 7px;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(255,100,0,0.8);
+    color: #fff;
+    cursor:pointer;
+    border: 1px solid
+     rgba(255,255,255,0.3);
+    box-shadow: 1px 1px 5px rgb(0,0,0,0.3);
+    margin-bottom: 20px;
+}
+label,span,h2{
+    text-shadow: 1px 1px 5px rgb(0,0,0,0.3);
+}
+</style>
+<div class="main">
+  <div class="register">
+  <h2 class="title">
+    <span class="title-word title-word-1">Job</span>
+    <span class="title-word title-word-2">Seeker</span>
+    <span class="title-word title-word-3">Registration</span>
+  </h2>
+  {% if msg %}
+    <p style="text-align:center;">{{msg}}</p>
+  {% endif %}
+  <div style="width:60%; margin:0 auto;">
+    <form action="{% url 'jsreg' %}" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label>Enter Your Name</label>
+        <input type="text" name="name" class="form-control" required="true" placeholder="Enter Your Name:......"/>
+      </div>
+      <div class="form-group">
+        <label>Select Your Gender</label>
+        </br>
+        <input type="radio" name="gender" value="Male"/>Male
+        <input type="radio" name="gender" value="Female"/>Female
+      </div>
+      <div class="form-group">
+        <label>Enter Your Address</label>
+        <textarea name="address" class="form-control" placeholder="Enter Your Address....."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Enter Your Contact No.</label>
+        <input type="number" name="contactno" class="form-control" required="true" placeholder="Enter your Contact No."/>
+      </div>
+      <div class="form-group">
+        <label>Enter Your Email Address</label>
+        <input type="email" name="emailaddress" class="form-control" required="true" placeholder="email@gmail.com"/>
+      </div>
+      <div class="form-group">
+        <label>Enter Your Date Of Birth</label>
+        <input type="date" name="dob" class="form-control" >
+      </div>
+      <div class="form-group">
+        <label>Select Qualification</label>
+        <select name="qualification" class="form-control">
+          <option>-Select-</option>
+          <option>Diploma</option>
+          <option>B.Tech</option>
+          <option>B.C.A</option>
+          <option>M.Tech</option>
+          <option>M.C.A</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Select Experience</label>
+        <select name="experience" class="form-control">
+          <option>-Select-</option>
+          <option>0 Year</option>
+          <option>1 Year</option>
+          <option>2 Years</option>
+          <option>3 Years</option>
+          <option>4 Years</option>
+          <option>5 Years</option>
+          <option>More Than 5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Enter Keyskills</label>
+        <textarea name="keyskills" class="form-control" placeholder="Enter Your Skills"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Enter Password</label>
+        <input type="password" name="password" required="true" class="form-control" placeholder="***********">
+      </div>
+      <div class="form-group"></div>
+      </br>
+      <input type="submit" value="Register" class="btn button" align="center">
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock body%}

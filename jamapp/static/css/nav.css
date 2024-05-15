@@ -1,0 +1,10 @@
+ .navbar {
+background: linear-gradient(to right,#dbebbc,#f96a50)
+}
+.navbar .navbar-nav .nav-link{
+color: rgb(224, 64, 200)
+}
+.navbar .navbar-nav .nav-link:hover{
+
+color:limegreen;
+}

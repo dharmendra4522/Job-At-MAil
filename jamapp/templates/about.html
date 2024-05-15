@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block body %}
+<style>
+    .animate-charcter
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 80px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+</style>
+  <h2 class="animate-charcter">About This Portal</h2>
+<ul style="text-align:left ; text-transform: uppercase;" >
+   1.The Jobs At Mail is intermediate between Jobseekers
+and Employers.<br> The purpose is to enable the
+Jobseekers to search for the jobs from any remote
+location.<br><br>
+
+
+    The Jobseeker can Search for the jobs which with the
+Consultancy without actually visiting the Consultancy.
+<br><br>
+ The existing system requires applicants to search
+through print and visual media for job opportunities.
+<br><br>
+
+    Applicants need to apply for jobs using conventional
+methods and appear for interview on a specified date
+at a specified location.
+<br><br>
+    Employers need to advertise the vacancies and sort
+all applicant details, conduct selection procedures
+and complete the formalities.
+<br><br>
+    This approach is tedious and requires much effort
+and resources.
+<br><br>
+    The major prospect of this project is to make an
+applications which is administrative based to provide
+the complete information of the Job consultancy’s
+that the job seeker can be made easy in searching
+jobs and recruiting for companies.
+<br><br>
+    The proposed system is a web based application
+which allows applicants and employers to register
+their details.
+<br><br>
+    Applicants can browse through the vacancy details
+that are posted and can apply for the jobs online.
+Employers can browse through the posted resumes
+and select suitable candidates.
+
+</ul>
+{% endblock body%}

@@ -1,0 +1,149 @@
+{% extends "empbase.html" %}
+{% block body %}
+<style>
+    .button{
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #00000;
+            outline: 2px solid #800000;
+            padding: 0px 10px;
+            position: relative;
+            overflow: hidden;
+            transition: color 1s;
+            background-color: #4CAF50;
+            font-size: 25px;
+        }
+    .button:hover{
+                  color: #fff;
+                 }
+    .button::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50px;
+            width: 0;
+            height: 100%;
+            background-color: #008000;
+            transform: skewX(35deg);
+            z-index: -1;
+            transition: width 1s;
+        }
+        .button:hover::backdrop{
+            width: 150%;
+        }
+    div.main{
+              width: 900px;
+	          height: 100%;
+              margin-top: 5px;
+              margin-left: 50px;
+              margin-bottom: 30px;
+}
+h2{
+    text-align: center;
+    padding: 20px;
+    font-family: sans-serif;
+}
+div.register{
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+    color: #fff;
+}
+label{
+    font-family: sans-serif;
+    font-size: 18px;
+    font-style: italic;
+}
+input#name{
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline:0;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0, 0, 0,0.3) ;
+}
+input#submit{
+    width: 200px;
+    padding: 7px;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(255,100,0,0.8);
+    color: #fff;
+    cursor:pointer;
+    border: 1px solid
+     rgba(255,255,255,0.3);
+    box-shadow: 1px 1px 5px rgb(0,0,0,0.3);
+    margin-bottom: 20px;
+}
+label,span,h2{
+    text-shadow: 1px 1px 5px rgb(0,0,0,0.3);
+}
+h2 {
+  font-size: 72px;
+  #background: -webkit-linear-gradient(90deg, rgba(13,181,228,1) 0%, rgba(83,93,215,1)48%, rgba(112,223,255,1)100%);
+  background: -webkit-linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(59,223,162,1)56%, rgba(87,225,127,1)100%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight:700;
+}
+
+</style>
+<div>
+<div class="main">
+    <div class="register">
+<h2 style="color:blue;text-align:center;">
+Post A Job
+</h2>
+{% if msg %}
+<p style="text-align:center;">{{msg}}</p>
+{% endif %}
+
+<div style="width:60%; margin:0 auto;">
+    <form action="{% url 'pjob' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Job Title</label>
+            <input type="text" name="jobtitle" class="form-control " required="true" placeholder="Job Title"/>
+        </div>
+        <div class="form-group">
+            <label>Post</label>
+            <input type="text" name="post" class="form-control " required="true" placeholder="Post"/>
+        </div>
+        <div class="form-group">
+            <label>Job Descriptions</label>
+            <textarea name="jobdesc" class="form-control" placeholder="Job Descriptions......">
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label>Qualification</label>
+            <input type="text" name="qualification" class="form-control " required="true" placeholder="Qualification"/>
+        </div>
+        <div class="form-group">
+            <label>Experience</label>
+            <input type="text" name="experience" class="form-control " required="true" placeholder="Experience"/>
+        </div>
+        <div class="form-group">
+            <label>Location</label>
+            <input type="text" name="location" class="form-control " required="true" placeholder="Location"/>
+        </div>
+        <div class="form-group">
+            <label>Salary Per Anum</label>
+            <input type="number" name="salarypa" class="form-control " required="true" placeholder="Salary"/>
+        </div>
+        <br>
+        <input type="submit" value="submit" class="btn button">
+    </form>
+
+</div>
+</div>
+</div>
+</div>
+{% endblock body %}

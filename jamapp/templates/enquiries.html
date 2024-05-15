@@ -1,0 +1,30 @@
+{% extends "adminbase.html" %}
+{% block body %}
+<h4 style="color:blue;text-align:center;">
+    Enquiries Management
+</h4>
+<div style="overflow-x:scroll">
+    <table border="1">
+        <tr>
+            <td>Name</td>
+            <td>Gender</td>
+            <td>Address</td>
+            <td>Contact No</td>
+            <td>Email Address</td>
+            <td>Enquiry Text</td>
+            <td>Poated Date</td>
+        </tr>
+        {% for e in enq %}
+        <tr>
+            <td>{{e.name}}</td>
+            <td>{{e.gender}}</td>
+            <td>{{e.address}}</td>
+            <td>{{e.contactno}}</td>
+            <td>{{e.emailaddress}}</td>
+            <td>{{e.enquirytext}}</td>
+            <td>{{e.posteddate}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock body %}
