@@ -17,8 +17,8 @@ Run this project
           python manage.py runserver
 
 HOD User Name &  Password--
-   user name- dharm@gmail.com
-   Password- 1234
+   user name- admin@gmail.com
+   Password- admin@1234
 
    
-Author- Dharmendra Vishvkarma(student)
+Developer- Dharmendra Vishvkarma(student)
